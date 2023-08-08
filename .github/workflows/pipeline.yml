@@ -31,3 +31,16 @@ jobs:
       with:
         service-id: ${{secrets.SERVICE_ID}}
         api-key: ${{secrets.API_KEY}}
+
+  deploy:
+
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Render Deployment
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: ${{secrets.SERVICE_ID}}
+        api-key: ${{secrets.API_KEY}}
+        
+    
